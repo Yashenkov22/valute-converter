@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертор валют</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="cont">
+        <div class="card shadow-box m-2 form-wrap">
+            <div class="card-header text-center">
+                <h2>Конвертер валют</h2>
+            </div>
+        <form class="p-3" action="" method="POST">
+            {% csrf_token %}
+            <div class="form-content">
+                    <div class="form-group col-md-4 mb-0">
+                        <label for="amount">Сумма</label>
+                        <input class="form-control" id="amount" type="number" name="amount" placeholder="Введите число" {% if from_amount %}value="{{ from_amount }}"{% endif %}>
+                    </div>
+                <div class="form-group col-md-4 mb-0">
+                    <label for="amount">Отдаем</label>
+                    <select class="form-control" id="from_curr" name="from_curr">
+                        {% for val in list_name %}
+                        <option value="{{ val }}" {% if from_curr == val %} selected {% endif %}>{{ val }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group col-md-4 mb-0">
+                    <label for="amount">Получаем</label>
+                    <select class="form-control" id="to_curr" name="to_curr">
+                        {% for val in list_name %}
+                        <option value="{{ val }}" {% if to_curr == val %} selected {% endif %}>{{ val }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <hr>
+            {% if result %}
+            <div class="card col-6 p-0 m-auto">
+                <div class="card-header text-center">
+                     <b>Получаем</b>
+                </div>
+                <div class="card-body text-center">
+                    {{ result }} {{ to_curr|stringformat:"03s" }}
+                </div>
+            </div>
+            
+            {% endif %}
+            <div class="submit-btn mt-3">
+                <button type="submit" class="btn btn-primary">Расчитать</button>
+            </div>
+        </form>
+    </div>
+    </div>
+</body>
+</html>

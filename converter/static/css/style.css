@@ -1,0 +1,54 @@
+.cont {
+    width: inherit;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/171667-minimalizm-art-grafika-atmosfera-mir-7680x4320.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.form-wrap {
+    /* display: flex; */
+    /* flex-direction: column; */
+    width: 40%;
+    box-shadow: 2px 2px 15px rgb(149, 62, 167);
+    /* align-items: center; */
+    /* height: auto; */
+    /* background-color: azure; */
+    /* border: 1px solid rgb(32, 32, 32); */
+    /* border-radius: 5%; */
+}
+
+.form-title {
+    text-align: center;
+    border-bottom: 1px solid rgb(32, 32, 32);
+}
+
+.form-content {
+    display: flex;
+}
+
+.submit-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5px;
+}
+
+.form-group {
+    padding: 5px 5px;
+}
+
+.box-shadow {
+    box-shadow: 10px 5px 5px rgb(94, 91, 91);
+}
+
+label {
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
